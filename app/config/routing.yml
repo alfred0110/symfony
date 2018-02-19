@@ -1,0 +1,10 @@
+route_db:
+    resource: "@dbBundle/Controller/"
+    type: annotation
+    prefix:   /db
+
+
+app:
+    resource: '@AppBundle/Controller/'
+    prefix:   /
+    type: annotation
