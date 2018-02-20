@@ -57,14 +57,14 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-        mappings:
-          dbBundle:
-            mapping:tue
-            type:annotation
-            dir:/Entity
-            alias:db
-            prefix: dbBundle\Entity
-                is_bundle: true
+      #  mappings:
+      #    dbBundle:
+      #      mapping:tue
+      #      type:annotation
+      #      dir:/Entity
+      #      alias:db
+      #      prefix: dbBundle\Entity
+      #          is_bundle: true
 
 # Swiftmailer Configuration
 swiftmailer:
