@@ -2,6 +2,7 @@
 // src/Entity/Product.php
 
 namespace dbBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,18 +13,23 @@ class Product
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
      private $id;
 
      /**
       * @ORM\Column(type="string",length=100)
-      */
-      private $name;
+     */
+     private $name;
 
       /**
-       * @ORM\Column(type="decimal", scale=2, nulleable=true)
-       */
-       private $price;
+       * @ORM\Column(type="decimal", scale=2)
+      */
+      private $price;
+
+      /**
+       * @ORM\Column(type="text")
+      */
+      private $descripcion;
 }
