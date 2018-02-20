@@ -12,7 +12,7 @@ class DefaultController extends Controller
      */
     public function guardarAction()
     {
-        return $this->render('@db/Default/index.html.twig', array( 'nombre' => 'Guardar' ));
+        return $this->render('@db/Default/index.html.twig', array( 'nombre' => 'Accion de Guardar' ));
     }
 
     /**
