@@ -2,8 +2,11 @@
 
 namespace dbBundle\Controller;
 
+use dbBundle\Entity\Product;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+
 
 class DefaultController extends Controller
 {
@@ -12,7 +15,16 @@ class DefaultController extends Controller
      */
     public function guardarAction()
     {
-        return $this->render('@db/Default/index.html.twig', array( 'nombre' => 'Accion de Guardar' ));
+        $product = new Product();
+        $product->setName('A foo Bar');
+        $product->setPrice('19.99');
+        $product->setDescripcion('Test Foo Bar');
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->persist($product);
+        $em->flush();
+
+        return new Response('Created product id'. $product->getId());
     }
 
     /**
