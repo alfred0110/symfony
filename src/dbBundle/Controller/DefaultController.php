@@ -28,10 +28,17 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/leer")
+     * @Route("/leer/{id}")
      */
-    public function leerAction()
+    public function leerAction($id)
     {
-        return $this->render('@db/Default/index.html.twig', array( 'nombre' => 'Leer' ));
+      $product = $this->getDoctrine()
+        ->getRepository('dbBundle:Product')
+        ->find($id);
+
+      if(!$product){
+        throw $this->createNotFoundException('No se encontró el producto con Id: '.$id);
+      }
+      return $this->render('@db/Default/index.html.twig', array( 'nombre' => 'Leer' ));
     }
 }
