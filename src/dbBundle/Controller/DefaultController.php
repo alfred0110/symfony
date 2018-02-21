@@ -41,4 +41,23 @@ class DefaultController extends Controller
       }
       return $this->render('@db/Default/index.html.twig', array( 'nombre' => 'Leer' ));
     }
+
+    /**
+    * @Route("/actualizar/{id}")
+    */
+    public function ActualizarAction($id){
+
+      $em = $this->getDoctrine()->getEntityManager();
+      $product = $em->getRepository('dbBundle:Product')->find($id);
+
+      if(!$product){
+        throw $this->createNotFoundException('Producto no encontrado con Id: '.$id);
+      }
+      $product->setName('New product Name');
+
+      //Enviar cambios
+      $em->flush();
+
+      return $this->redirect($this->generateUrl('homepage'));
+    }
 }
