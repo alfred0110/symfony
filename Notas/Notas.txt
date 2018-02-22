@@ -3,3 +3,10 @@ php bin/console doctrine:generate:entities dbBundle
 
 CYGWYN:
 mysql -h 127.0.0.1 -u root
+
+update PhpUnit
+desde el nivel principal de la app, ejecutar:
+vendor/bin/simple-phpunit
+
+Ejecutar PhpUnit:
+./vendor/bin/simple-phpunit
