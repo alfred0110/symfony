@@ -43,8 +43,7 @@ use dbBundle\Entity\Autor;
 
         $form = $this->createFormBuilder($autor)
           ->add('name')
-          ->add('gender',ChoiceType::class, array(
-            'required' => true))
+          ->add('gender')
           ->getForm();
 
         if($request->getMethod() == 'POST'){

@@ -11,7 +11,7 @@ class Autor
   public $name;
 
   /**
-  * @Assert\Choice(choices = { "masculino", "femenino"}, message = "Escoge un genero valido.")
+  * @Assert\Choice(choices={"masculino","femenino"}, message = "Escoge un genero valido.")
   */
   public $gender;
 
