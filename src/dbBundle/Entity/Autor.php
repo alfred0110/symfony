@@ -10,9 +10,21 @@ class Autor
   */
   public $name;
 
+  /**
+  * @Assert\Choice(choices = { "masculino", "femenino"}, message = "Escoge un genero valido.")
+  */
+  public $gender;
+
   public function setName($name)
   {
       $this->name = $name;
+
+      return $this;
+  }
+
+  public function setGender($gender)
+  {
+      $this->gender = $gender;
 
       return $this;
   }

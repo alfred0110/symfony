@@ -5,6 +5,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use dbBundle\Entity\Autor;
 
 /**
@@ -33,26 +34,33 @@ use dbBundle\Entity\Autor;
     }
 
     /**
-     * @Route("/update")
+     * @Route("/new")
      */
-    public function updateAction(Request $request)
+    public function new(Request $request)
     {
-      $autor = new Autor();
-      $autor->setName("Alf");
+        $autor = new Autor();
+        $autor->setName("Alf");
 
-      $form = $this->createFormBuilder($autor)
-        ->add('name')
-        ->getForm();
+        $form = $this->createFormBuilder($autor)
+          ->add('name')
+          ->add('gender',ChoiceType::class, array(
+            'required' => true))
+          ->getForm();
 
-        if($form->isvalid())
-        {
-          return $this->render('@db/Autor/form.html.twig', array(
-            'form' => $form->createView(),
+        if($request->getMethod() == 'POST'){
+          $form->handleRequest($request);
+
+          if($form->isvalid())
+          {
+            return new Response('THE FORM IS VALID');
+          }
+          else {
+            return new Response('The form is not valid');
+          }
+        }
+          return $this->render('@db/Autor/new.html.twig', array(
+            'formulario_autor' => $form->createView(),
           ));
-        }
-        else {
-              return new Response('The form is not valid');
-        }
     }
 }
  ?>
