@@ -5,9 +5,11 @@
     <title></title>
   </head>
   <body>
-    <form action="{{ path('db_validacion_new')}}" method="post">
+    <form action="{{ path('db_validacion_new')}}" method="post" novalidate>
       {{form_widget(formulario_autor)}}
       <input type="submit">
     </form>
+   </div>
+
   </body>
 </html>

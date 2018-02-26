@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use dbBundle\Entity\Autor;
-
+use dbBundle\Form\Type\AutorType;
 /**
  * @Route("/validate")
  */
@@ -41,25 +41,22 @@ use dbBundle\Entity\Autor;
         $autor = new Autor();
         $autor->setName("Alf");
 
-        $form = $this->createFormBuilder($autor)
-          ->add('name')
-          ->add('gender')
-          ->getForm();
+        $form = $this->createForm(AutorType::class, $autor);
 
         if($request->getMethod() == 'POST'){
-          $form->handleRequest($request);
+            $form->handleRequest($request);
 
-          if($form->isvalid())
-          {
-            return new Response('THE FORM IS VALID');
+            if($form->isvalid())
+            {
+              return new Response('THE FORM IS VALID');
+            }
+            return $this->render('@db/Autor/new.html.twig', array(
+              'formulario_autor' => $form->createView(),
+            ));
           }
-          else {
-            return new Response('The form is not valid');
-          }
-        }
-          return $this->render('@db/Autor/new.html.twig', array(
-            'formulario_autor' => $form->createView(),
-          ));
+        return $this->render('@db/Autor/new.html.twig', array(
+          'formulario_autor' => $form->createView(),
+        ));
     }
 }
  ?>
