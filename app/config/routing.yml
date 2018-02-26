@@ -3,7 +3,6 @@ route_db:
     type: annotation
     prefix:   /db
 
-
 app:
     resource: '@AppBundle/Controller/'
     prefix:   /

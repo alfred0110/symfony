@@ -28,7 +28,6 @@ class Autor
   */
   private $firstName;
 
-
   public function setFirstName($firstName)
   {
       $this->firstName = $firstName;
@@ -50,6 +49,15 @@ class Autor
       $this->gender = $gender;
       return $this;
   }
+  /**
+  * @Assert\IsTrue(message = "El nombre y apellido no pueden ser iguales")
+  */
+  public function isApellidoLegal()
+  {
+    //devuelve 'true' o 'false'
+    return ($this->firstName != $this->name);
+  }
+  
 }
 
 ?>
