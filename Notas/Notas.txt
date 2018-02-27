@@ -10,3 +10,10 @@ vendor/bin/simple-phpunit
 
 Ejecutar PhpUnit:
 ./vendor/bin/simple-phpunit
+
+
+################################################
+Commands:
+
+  Generar Paquetes:       php bin/console generate:bundle --namespace=Formularios/TareasBundle
+  Generar Controlador:    php bin/console generate:controller
