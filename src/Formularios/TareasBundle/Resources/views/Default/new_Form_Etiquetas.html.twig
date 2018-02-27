@@ -10,26 +10,34 @@
   </head>
   <body>
 
-    <div class="panel panel-default">
-        <form action="{{ path('tarea_nueva')}}" method="post">
+    <div class="container">
+        <form action="{{ path('tarea_nueva')}}" method="post" class='form-horizontal'>
 
-        {{ form_errors(formulario)}}
+            {{ form_errors(formulario)}}
 
-        <div class="input-group">
-          {{form_label(formulario.tarea)}}
-          {{form_errors(formulario.tarea)}}
-          {{form_widget(formulario.tarea, { 'attr': { 'class':'form-control'} } )}}
-        </div>
+            <div class="form-group">
+              {{form_label(formulario.tarea, null , {'attr': { 'class':'control-label col-sm-2'}} )}}
 
-        <div>
-          {{form_label(formulario.fechaVencimiento)}}
-          {{form_errors(formulario.fechaVencimiento)}}
-          {{form_widget(formulario.fechaVencimiento)}}
-        </div>
+              <div class="col-sm-10">
+                {{form_errors(formulario.tarea)}}
+                {{form_widget(formulario.tarea, { 'attr': { 'class':'form-control'} } )}}
+              </div>
 
-        {{ form_rest(formulario)}}
+            </div>
 
-      </form>
+            <div class="form-group">
+                  {{ form_label(formulario.fechaVencimiento, null, { 'attr': { 'class':'control-label col-sm-2'}} ) }}
+
+                  <div class="col-sm-10">
+                    {{form_errors(formulario.fechaVencimiento)}}
+                    {{form_widget(formulario.fechaVencimiento, { 'attr': { 'class':'form-control'} } ) }}
+                  </div>
+            </div>
+
+            {{ form_rest(formulario)}}
+
+            <input type="submit">
+       </form>
     </div>
 
     <!-- Optional JavaScript -->
