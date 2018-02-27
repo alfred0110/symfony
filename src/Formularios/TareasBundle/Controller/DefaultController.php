@@ -39,7 +39,7 @@ class DefaultController extends Controller
             )) //Array para establecer propiedades ej. Label
           ->getForm();
 
-        return $this->render("@FormulariosTareas/Default/new.html.twig", array(
+        return $this->render("@FormulariosTareas/Default/new_Form_Etiquetas.html.twig", array(
           'formulario' => $form->createView(),
         ));
     }
