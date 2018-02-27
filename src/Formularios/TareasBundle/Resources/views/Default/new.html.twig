@@ -1,0 +1,13 @@
+{# src/Formularios/TareasBundle/Resources/views/Default/new.html.twig #}
+
+{#  path:  Especifica una ruta relativa
+    url:   Especifica una ruta absoluta
+#}
+
+<form action="{{ path('tarea_nueva')}}" method="post">
+
+  {{ form_widget(formulario)}}
+  
+  <input type="submit">
+
+</form>
