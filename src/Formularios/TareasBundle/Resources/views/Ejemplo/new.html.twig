@@ -1,6 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block tituloPanel %} {{parent()}}Ejemplo con formularios {% endblock %}
 {% block body %}
+
+
+    {#  La configuracion del tema para los formularios se hizo global
+        configurando twig en config/config.yml:
+        form_theme formulario 'bootstrap_4_horizontal_layout.html.twig'
+    #}
 
     {# Pass a string argument to get only the messages of the type #}
 
@@ -15,7 +22,6 @@
         {{ msg }}
       </div>
     {% endfor %}
-
 
     <form action="{{ path('producto_nuevo')}}" method="post">
 

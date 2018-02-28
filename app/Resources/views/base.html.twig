@@ -10,11 +10,25 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+        <div class="container">
+          <div class="row">
+              <div class="col-md-8 offset-md-2">
+                  <div class="card">
+                      <div class="card-header">
+                        {% block tituloPanel %}<h3>Tutorial Symfony</h3>{% endblock %}
+                      </div>
+                      <div class="card-block" style="padding:1em">
+                        {% block body %}{% endblock %}
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
 
         {% block javascripts %}
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+          <!-- jQuery -->
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         {% endblock %}
     </body>
 </html>
