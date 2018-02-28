@@ -15,5 +15,7 @@ Ejecutar PhpUnit:
 ################################################
 Commands:
 
-  Generar Paquetes:       php bin/console generate:bundle --namespace=Formularios/TareasBundle
-  Generar Controlador:    php bin/console generate:controller
+  Generar Paquetes:           php bin/console generate:bundle --namespace=Formularios/TareasBundle
+  Generar Controlador:        php bin/console generate:controller
+  Generar Entity(Annotation)  php bin/console doctrine:mapping:convert annotation ./src/Formularios/TareasBundle
+  Generar Geter/Setter        php app/console doctrine:generate:entities Acme/StoreBundle/Entity/Product

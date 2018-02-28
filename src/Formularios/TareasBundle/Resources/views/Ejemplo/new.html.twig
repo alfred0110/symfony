@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {# Pass a string argument to get only the messages of the type #}
+
+    {% for msg in app.flashes('success') %}
+      <div class="alert alert-success">
+        {{ msg }}
+      </div>
+    {% endfor %}
+
+    {% for msg in app.flashes('error') %}
+      <div class="alert alert-danger">
+        {{ msg }}
+      </div>
+    {% endfor %}
+
+
+    <form action="{{ path('producto_nuevo')}}" method="post">
+
+      {{ form_widget(formulario)}}
+
+      <input type="submit">
+
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+    /*  $(".alert-danger").fadeTo(2000,500).slideUp(500,function(){
+        $(".alert-danger").slideUp(500);
+      });
+      */
+    });
+
+</script>
+
+{% endblock %}
