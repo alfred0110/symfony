@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block tituloPanel %} {{ parent() }} Ejemplo con formularios {% endblock %}
+{% block tituloPanel %} {{ parent() }} Integrando Formularios {% endblock %}
 
 {#  La configuracion del tema para los formularios se hizo global
     configurando twig en config/config.yml:
@@ -9,10 +9,11 @@
 
 {% block body %}
 
-    <form action="{{ path('producto_nuevo')}}" method="post">
+    <form action="{{ path('task_new')}}" method="post">
 
       {{ form_widget(formulario) }}
       <input type="submit" class="btn btn-primary center">
 
     </form>
+
 {% endblock %}

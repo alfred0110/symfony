@@ -17,5 +17,7 @@ Commands:
 
   Generar Paquetes:           php bin/console generate:bundle --namespace=Formularios/TareasBundle
   Generar Controlador:        php bin/console generate:controller
-  Generar Entity(Annotation)  php bin/console doctrine:mapping:convert annotation ./src/Formularios/TareasBundle
-  Generar Geter/Setter        php app/console doctrine:generate:entities Acme/StoreBundle/Entity/Product
+  Generar Entity(Annotation)  php bin/console doctrine:mapping:convert annotation ./src/Formularios/TareasBundle/Entity
+  Generar Entity(Annotation)
+    [solo una tabla]          php bin/console doctrine:mapping:convert annotation ./src/Formularios/TareasBundle/Entity --from-database --filter="TableName"
+  Generar Getter/Setter       php bin/console doctrine:generate:entities FormulariosTareasBundle:Product --no-backup

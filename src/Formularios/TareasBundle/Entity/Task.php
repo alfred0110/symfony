@@ -1,16 +1,19 @@
 <?php
 
+
 namespace Formularios\TareasBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Formularios\TareasBundle\Entity\Category;
 
 /**
- * Tarea
+ * Task
  *
- * @ORM\Table(name="tarea")
+ * @ORM\Table(name="task", indexes={@ORM\Index(name="fk_task_category_id", columns={"categoryId"})})
  * @ORM\Entity
  */
-class Tarea
+class Task
 {
     /**
      * @var integer
@@ -36,6 +39,24 @@ class Tarea
     private $fechavencimiento;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="categoryId", type="integer", nullable=false)
+     */
+    private $categoryid;
+
+    /*
+    * @Assert\Type(type "Formularios\TareasBundle\Entity\Category")
+    */
+    protected $category;
+    public function getCategory(){
+        return $this->category;
+    }
+    public function setCategory(Category $category = null){
+      $this->category = $category;
+    }
+
+    /**
      * Get idtarea
      *
      * @return integer
@@ -50,7 +71,7 @@ class Tarea
      *
      * @param string $tarea
      *
-     * @return Tarea
+     * @return Task
      */
     public function setTarea($tarea)
     {
@@ -74,7 +95,7 @@ class Tarea
      *
      * @param \DateTime $fechavencimiento
      *
-     * @return Tarea
+     * @return Task
      */
     public function setFechavencimiento($fechavencimiento)
     {
@@ -91,5 +112,29 @@ class Tarea
     public function getFechavencimiento()
     {
         return $this->fechavencimiento;
+    }
+
+    /**
+     * Set categoryid
+     *
+     * @param integer $categoryid
+     *
+     * @return Task
+     */
+    public function setCategoryid($categoryid)
+    {
+        $this->categoryid = $categoryid;
+
+        return $this;
+    }
+
+    /**
+     * Get categoryid
+     *
+     * @return integer
+     */
+    public function getCategoryid()
+    {
+        return $this->categoryid;
     }
 }

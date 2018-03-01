@@ -11,7 +11,7 @@
     </head>
     <body>
 
-        <div class="container">
+        <div class="container" style="margin-top:2em">
           <div class="row">
               <div class="col-md-8 offset-md-2">
                   <div class="card">
@@ -19,6 +19,20 @@
                         {% block tituloPanel %}<h3>Tutorial Symfony</h3>{% endblock %}
                       </div>
                       <div class="card-block" style="padding:1em">
+                        {# Pass a string argument to get only the messages of the type #}
+
+                        {% for msg in app.flashes('success') %}
+                          <div class="alert alert-success">
+                            {{ msg }}
+                          </div>
+                        {% endfor %}
+
+                        {% for msg in app.flashes('error') %}
+                          <div class="alert alert-danger">
+                            {{ msg }}
+                          </div>
+                        {% endfor %}
+                        
                         {% block body %}{% endblock %}
                       </div>
                   </div>
